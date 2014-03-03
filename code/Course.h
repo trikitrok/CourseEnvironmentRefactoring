@@ -1,7 +1,6 @@
 #pragma once
 
 #include <string>
-#include <ctime>
 
 class Chronometer;
 
@@ -24,8 +23,6 @@ public:
 private:
   Chronometer * chronometer;
   std::string name;
-  int duration;
   std::string college;
-  clock_t startTime;
 };
 

@@ -22,12 +22,11 @@ Course::~Course() {
 }
 
 void Course::start() {
-  this->startTime = clock();
+  chronometer->start();
 }
 
 void Course::end() {
-  clock_t endTime = clock();
-  this->duration = static_cast<int>((endTime - this->startTime) / CLOCKS_PER_SEC);
+  chronometer->end();
 }
 
 std::string Course::getName() const {
@@ -39,12 +38,12 @@ std::string Course::getCollege() const {
 }
 
 int Course::getDurationInSeconds() const {
-  return this->duration;
+  return chronometer->getDurationInSeconds();
 }
 
 bool Course::isShort() const {
   const int twoMinutes = 2 * 60;
-  return this->duration < twoMinutes;
+  return getDurationInSeconds() < twoMinutes;
 }
 
 bool Course::isLong() const {
