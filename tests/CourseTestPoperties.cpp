@@ -1,8 +1,7 @@
 #include <gmock/gmock.h>
 
 #include "../code/Course.h"
-#include "../code/Chronometer.h"
-#include "../code/CourseEnvironment.h"
+#include "FakeCourseEnvironment.h"
 
 #include <cstddef>
 #include <Windows.h>
@@ -15,9 +14,8 @@ TEST(ACourse, IsCreated) {
   ASSERT_THAT(course.getName(), Eq("math"));
 }
 
-// Needs environment variable ENV_COLLEGE with value Standford
 TEST(ACourse, WhenCreatedInitializesCollegeProperty) {
-  Course course("math", CourseEnvironment::create(), NULL);
+  Course course("whatever", new FakeCourseEnvironment("Yale"), NULL);
 
-  ASSERT_THAT(course.getCollege(), Eq("Stanford"));
+  ASSERT_THAT(course.getCollege(), Eq("Yale"));
 }

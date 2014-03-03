@@ -11,8 +11,10 @@ public:
 
   std::string getCollege() const;
 
-private:
+protected:
   CourseEnvironment(const std::string & college);
+
+private:
   std::string college;
 };
 
