@@ -3,11 +3,12 @@
 #include <string>
 
 class Chronometer;
+class CourseEnvironment;
 
 class Course
 {
 public:
-  Course(const std::string & name, Chronometer * chronometer);
+  Course(const std::string & name, CourseEnvironment * environment, Chronometer * chronometer);
   virtual ~Course();
 
   void start();
@@ -22,7 +23,7 @@ public:
 
 private:
   Chronometer * chronometer;
+  CourseEnvironment * environment;
   std::string name;
-  std::string college;
 };
 

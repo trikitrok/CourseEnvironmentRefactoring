@@ -3,6 +3,7 @@
 #include "../code/Course.h"
 #include "FakeChronometer.h"
 
+#include <cstddef>
 #include <Windows.h>
 
 using namespace ::testing;
@@ -11,7 +12,7 @@ int minutes(int n);
 int seconds(int n);
 
 TEST(Course, CanTellWhenItIsShort) {
-  Course course("math", new FakeChronometer(seconds(2)));
+  Course course("math", NULL, new FakeChronometer(seconds(2)));
 
   course.start();
   course.end();
@@ -20,7 +21,7 @@ TEST(Course, CanTellWhenItIsShort) {
 }
 
 TEST(Course, CanTellItIsLong) {
-  Course course("math", new FakeChronometer(minutes(3)));
+  Course course("math", NULL, new FakeChronometer(minutes(3)));
 
   course.start();
   course.end();

@@ -1,24 +1,16 @@
 #include "Course.h"
 
 #include "Chronometer.h"
+#include "CourseEnvironment.h"
 
-#include <Windows.h>
-
-Course::Course(const std::string & name, Chronometer * chronometer)
-: name(name), chronometer(chronometer) {
-
-  // Setting college property
-  const DWORD buffSize = 65535;
-  static char buffer[buffSize];
-  if (GetEnvironmentVariableA("ENV_COLLEGE", buffer, buffSize)) {
-    this->college = std::string(buffer);
-  } else {
-    this->college = "";
-  }
+Course::Course(const std::string & name, CourseEnvironment * environment,
+  Chronometer * chronometer)
+: name(name), chronometer(chronometer), environment(environment) {
 }
 
 Course::~Course() {
   delete chronometer;
+  delete environment;
 }
 
 void Course::start() {
@@ -34,7 +26,7 @@ std::string Course::getName() const {
 }
 
 std::string Course::getCollege() const {
-  return this->college;
+  return this->environment->getCollege();
 }
 
 int Course::getDurationInSeconds() const {
