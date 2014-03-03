@@ -1,7 +1,7 @@
 #include <gmock/gmock.h>
 
 #include "../code/Course.h"
-#include "FakeChronometer.h"
+#include "Helpers/FakeChronometer.h"
 
 #include <cstddef>
 #include <Windows.h>

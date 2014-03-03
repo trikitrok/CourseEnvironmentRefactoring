@@ -1,7 +1,7 @@
 #include <gmock/gmock.h>
 
 #include "../code/Course.h"
-#include "FakeCourseEnvironment.h"
+#include "Helpers/FakeCourseEnvironment.h"
 
 #include <cstddef>
 #include <Windows.h>

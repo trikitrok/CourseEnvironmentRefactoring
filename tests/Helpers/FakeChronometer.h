@@ -1,6 +1,6 @@
 #pragma once
 
-#include "../code/Chronometer.h"
+#include "../../code/Chronometer.h"
 
 class FakeChronometer : public Chronometer
 {
