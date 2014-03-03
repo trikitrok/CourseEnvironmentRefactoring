@@ -1,6 +1,7 @@
 #include <gmock/gmock.h>
 
 #include "../code/Course.h"
+#include "../code/Chronometer.h"
 
 #include <Windows.h>
 
@@ -16,7 +17,7 @@ protected:
   Course * course;
 
   virtual void SetUp() {
-    course = new Course("math");
+    course = new Course("math", new Chronometer);
   }
 
   virtual void TearDown() {

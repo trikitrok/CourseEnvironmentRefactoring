@@ -1,9 +1,11 @@
 #include "Course.h"
 
+#include "Chronometer.h"
+
 #include <Windows.h>
 
-Course::Course(const std::string & name)
-: name(name) {
+Course::Course(const std::string & name, Chronometer * chronometer)
+: name(name), chronometer(chronometer) {
 
   // Setting college property
   const DWORD buffSize = 65535;
@@ -15,7 +17,9 @@ Course::Course(const std::string & name)
   }
 }
 
-Course::~Course() {}
+Course::~Course() {
+  delete chronometer;
+}
 
 void Course::start() {
   this->startTime = clock();
