@@ -11,10 +11,9 @@ void Chronometer::start() {
 }
 
 void Chronometer::end() {
-  clock_t endTime = clock();
-  this->duration = static_cast<int>((endTime - this->startTime) / CLOCKS_PER_SEC);
+  this->endTime = clock();
 }
 
 int Chronometer::getDurationInSeconds() const {
-  return this->duration;
+  return static_cast<int>((endTime - this->startTime) / CLOCKS_PER_SEC);
 }

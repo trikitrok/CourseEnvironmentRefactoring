@@ -11,10 +11,10 @@ public:
   void start();
   void end();
 
-  int getDurationInSeconds() const;
+  virtual int getDurationInSeconds() const;
 
-private:
-  int duration;
+protected:
+  clock_t endTime;
   clock_t startTime;
 };
 
