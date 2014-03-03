@@ -4,7 +4,6 @@
 #include "Helpers/FakeCourseEnvironment.h"
 
 #include <cstddef>
-#include <Windows.h>
 
 using namespace ::testing;
 
